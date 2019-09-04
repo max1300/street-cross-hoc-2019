@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}liste des offres{% endblock %}
+{% block title %}Offre en lecture{% endblock %}
 
 {% block body %}
 
-<h1>Nos Offres d'emploi</h1>
 <style>
     h1{
         text-align: center;
@@ -12,9 +11,8 @@
         margin-bottom: 40px;
     }
 </style>
-{% if offres %}
 
-    {% for offre in offres %}
+{% if offre %}
         <style>
             h1{
                 margin-top: 20px;
@@ -69,23 +67,31 @@
                             Explicabo eveniet necessitatibus omnis nihil quidem saepe vel sapiente possimus voluptatibus rerum, reprehenderit distinctio exercitationem dignissimos voluptates, laborum corrupti nobis ullam ipsum, officia doloremque? Debitis odio delectus eius nesciunt ratione.
                             Voluptates commodi, in illo tempore ullam sequi sunt, rem labore ad consequuntur a quam nobis qui quaerat laboriosam repellat sit, assumenda quia! Eligendi omnis nemo labore doloribus dignissimos, eos fugit.
                         </p>
+
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam nulla doloremque delectus mollitia harum aperiam assumenda magni voluptatibus tempora vel facere error facilis repellendus neque repellat, nemo voluptatum corrupti iusto.
+                            Molestias reprehenderit molestiae culpa minus error, quaerat enim sit eveniet fuga quibusdam corrupti quam dolorum iusto modi et magnam perspiciatis quo assumenda, possimus laboriosam. Eaque veritatis ab temporibus repellat aliquid.
+                            Commodi architecto recusandae vero beatae tenetur! Voluptates pariatur odio maiores sunt tenetur dolorum iure aliquid, perferendis excepturi, iusto, cupiditate praesentium quo repellendus? Eveniet eos voluptatibus nam eligendi corporis vero nostrum.
+                            Eius sunt velit ratione dicta aliquid, inventore enim dignissimos molestiae. Explicabo minus earum odio suscipit veritatis accusantium possimus aut hic, sed debitis modi itaque tempore dignissimos repellendus et molestiae atque.
+                            Earum vero ipsum totam aliquam, eius, voluptatibus quae maxime sapiente qui veniam perferendis id aperiam eligendi incidunt, labore quisquam distinctio accusamus nam nostrum iure officiis ea. Ipsum molestiae perferendis impedit?
+                        </p>
+
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem exercitationem adipisci ullam vel eum non. Dolore nobis, voluptates quae accusantium facere, necessitatibus id ratione officiis, nesciunt obcaecati neque nemo voluptatibus.
+                            Facilis animi beatae tenetur debitis possimus veritatis impedit autem magni sunt, blanditiis vel quia nam pariatur iure excepturi ratione aliquid illo doloribus. Earum consequuntur quibusdam molestias iste sequi amet aliquid?
+                            Totam sequi temporibus debitis id eius voluptates repellat magnam corporis voluptas, sit exercitationem nesciunt voluptate! Ex eius amet, vitae cupiditate aliquid at porro obcaecati eum laudantium nulla, mollitia sapiente nostrum.
+                            Cupiditate aut expedita laboriosam debitis fuga delectus a ab soluta dolores, in quod id similique neque quasi aliquid laudantium ex dignissimos optio corrupti excepturi explicabo. Incidunt cumque aliquid impedit id.
+                            Dolorum ab est obcaecati dignissimos commodi, minima molestias ratione voluptatum iusto similique corporis labore dicta? Minus accusamus eveniet ad, atque qui aliquid itaque enim doloribus ex ipsum? Ab, harum omnis?
+                        </p>
                     </div>
-                    
-                    <div class="bouton">
-                        
-                        <a href="{{ path('offre_showOne', {'id': offre.id}) }}" class="btn btn-primary ">Voir plus...</a>
-                        
-                    </div>
-                    
                 </div>
             </article>
         </div>    
-    {% endfor %}        
+            
 
 {% else %}
     <h2>Aucune offre trouvée</h2>
 {% endif %}
-        
 {% endblock %}
 
 {% block footer %}{{ parent() }}{% endblock %}

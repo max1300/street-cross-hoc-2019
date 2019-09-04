@@ -4,22 +4,24 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         
-        <script src="https://kit.fontawesome.com/135b1e673b.js"></script>
+        
         {% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
         {% endblock %}
     </head>
     <body>
 <style>
-   
+    .navbar-brand{
+        text-shadow: 2px 2px 2px black;
+    }
     li.nav-item{
-        margin-right: 5%;
-       
-        
+        margin-right:2%;  
     }
 
     a.btn.btn-primary{
         width: 150px;
+        box-shadow: 2px 2px 2px black;
     }
 
 </style>
@@ -31,7 +33,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav mx-auto">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
                         <a class="btn btn-primary" role="button" aria-disabled="true" href="{{ path('home') }}">Accueil </a>
                     </li>
@@ -47,6 +49,47 @@
         
         {% block body %} {% endblock %}
         
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %} {% endblock %}
+
+        {% block footer %}
+        <style>
+            .footer {
+              position: fixed;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              background-color: rgba(0, 0, 0, 0.514);
+              color: white;
+            }
+
+            .footer p{
+                color: white;
+                font-size: 27px;
+            }
+
+            /* Facebook */
+            .fa-facebook {
+                padding-top: 1%;
+                padding-left: 2%;
+                color: white;
+                text-decoration: none;
+            }
+
+            /* Twitter */
+            .fa-twitter {
+                padding-left: 1%;
+                color: white;
+                text-decoration: none;
+            }
+            </style>
+        <div class="footer">
+            <p>
+                
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+            </p>
+        </div
+        {% endblock %}
+
     </body>
 </html>
