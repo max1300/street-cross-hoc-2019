@@ -1,19 +1,34 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block title %}création d'une offres{% endblock %}
 
 {% block body %}
-<style>
-.alert-dismissible.alert-success, .alert-dismissible.alert-success .alert-link, .alert-dismissible.alert-success .close:before {
-    text-align: center;
-    font-size: 30px;
-}
-</style>
 
-<div class="alert alert-dismissible alert-success">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <strong>Well done ! Your offer has been created</strong><a href="#" class="alert-link"></a>.
-</div>
+{% if editMode %}
+  <h1> Edition d'une offre </h1>
+{% else %}
+  <h1> Création d'une offre </h1>
+{% endif %}
+
+
+
+{{ form_start(form) }}
+
+    {{ form_row(form.title, { 'attr': {'placeholder': 'entrez un titre....'}}) }}
+
+    {{ form_row(form.description, { 'attr': {'placeholder': 'entrez une description....'}}) }}
+
+    <button type="submit" class="btn btn-success btn-lg">
+      {% if editMode %}
+        Enregistrer les changements
+      {% else %}
+        créer
+      {% endif %}
+    </button>
+
+{{ form_end(form) }}
+
 
 {% endblock %}
 

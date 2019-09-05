@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OffreRepository")
@@ -18,11 +19,19 @@ class Offre
     private $id;
 
     /**
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 50,
+     *      minMessage = "Votre titre doit faire au minimum 10 caractères"
+     *      )
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     * @Assert\NotBlank
+     * @Assert\Length(min = 20, minMessage = "Votre description doit faire au minimum 20 caractères")
      * @ORM\Column(type="text")
      */
     private $description;

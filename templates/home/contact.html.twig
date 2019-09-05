@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+<h1> Page de contact </h1>
+
+{{ form_start(form) }}
+
+    {{ form_row(form.username) }}
+
+    {{ form_row(form.password) }}
+
+    {{ form_row(form.email) }}
+
+    {{ form_row(form.content, { 'attr': {'placeholder': 'entrez votre texte...', 'rows': 8}} ) }}
+
+
+    <button type="submit" class="btn btn-success btn-lg">Enregistrer</button>
+      
+
+{{ form_end(form) }}
+
+
+{% endblock %}

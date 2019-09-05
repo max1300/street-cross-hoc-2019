@@ -34,6 +34,10 @@
             .progress{
                 margin-bottom: 30px;
             }
+
+            li{
+                list-style: none;
+            }
         </style>
 
         <div class="container container-pagination">
@@ -84,6 +88,10 @@
                             Dolorum ab est obcaecati dignissimos commodi, minima molestias ratione voluptatum iusto similique corporis labore dicta? Minus accusamus eveniet ad, atque qui aliquid itaque enim doloribus ex ipsum? Ab, harum omnis?
                         </p>
                     </div>
+
+                    <li class="edition ">
+                        <a class="btn btn-primary" role="button" aria-disabled="true" href="{{ path('offre_edit', {'id': offre.id}) }}">Editer l'offre </a>
+                    </li>
                 </div>
             </article>
         </div>    

@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Offre;
 use App\Repository\OffreRepository;
-
+use Symfony\Component\HttpFoundation\Request;
+use App\Form\OffreType;
+use Doctrine\ORM\EntityManagerInterface;
 
 class OffreController extends AbstractController
 {
@@ -25,6 +27,40 @@ class OffreController extends AbstractController
 
 
     /**
+    * @Route("/create", name="offre_create")
+    * @Route("/offres/{id}/edit", name="offre_edit")
+    */
+     public function create(Offre $offre = null, Request $request, EntityManagerInterface $entityManager) 
+     {
+        if(!$offre){
+            $offre = new Offre();
+        }
+        
+
+        $form = $this->createForm(OffreType::class, $offre);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            
+            
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($offre);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('offre_showOne', ['id' => $offre -> getId()]);
+        }
+
+        return $this->render(
+            'offre\create.html.twig', [
+            'form' => $form -> createView(),
+            'editMode' => $offre -> getId() !== null
+        ]);
+
+     }
+
+     
+    /**
     * @Route("/offres/{id}", name="offre_showOne")
     */
      public function show(Offre $offre)
@@ -35,29 +71,5 @@ class OffreController extends AbstractController
     }
 
 
-    // /**
-    //  * @Route("/create", name="offre_create")
-    //  */
-    // public function create(EntityManagerInterface $entityManager): Response
-    // {
-
-    //     $faker = Faker\Factory::create('fr_FR');
-
-    //     for($i= 0; $i < 10; $i++){
-    //         $offre = new Offre();
-    //         $offre->setTitle("Mon offre" . $i)
-    //             ->setDescription("tentative d enregistrement d'offre" . $i)
-    //             ->setCreatedAt(new \DateTime('now'));
-
-    //         $entityManager->persist($offre);
-    //     }
-        
-    //     $entityManager->flush();
-
-
-    //     return $this->render(
-    //         'offre\create.html.twig'
-    //     );
-
-    // }
+    
 }

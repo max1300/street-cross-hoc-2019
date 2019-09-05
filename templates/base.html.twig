@@ -15,9 +15,7 @@
     .navbar-brand{
         text-shadow: 2px 2px 2px black;
     }
-    li.nav-item{
-        margin-right:2%;  
-    }
+    
 
     a.btn.btn-primary{
         width: 150px;
@@ -39,6 +37,12 @@
                     </li>
                     <li class="nav-item  {{ app.request.get('_route') == 'offres_liste' ? 'active' }}">
                         <a class="btn btn-primary" role="button" aria-disabled="true" href="{{ path('offres_liste') }}">Nos offres</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="btn btn-primary" role="button" aria-disabled="true" href="{{ path('offre_create') }}">Créer un article </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="btn btn-primary" role="button" aria-disabled="true" href="{{ path('contact') }}">Contacts </a>
                     </li>
                 </ul>   
                 
