@@ -48,6 +48,7 @@ class OffreController extends AbstractController
             $entityManager->persist($offre);
             $entityManager->flush();
 
+            
             return $this->redirectToRoute('offre_showOne', ['id' => $offre -> getId()]);
         }
 

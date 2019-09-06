@@ -42,7 +42,12 @@ class HomeController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home');
+            $this->addFlash(
+                "success",
+                "Votre message a été envoyé, merci."
+            );
+
+            return $this->redirectToRoute('display_flash');
         }
 
         return $this->render(
@@ -50,5 +55,15 @@ class HomeController extends AbstractController
             'form' => $form -> createView()
             ]
             );
+    }
+
+    /**
+     * @Route("/display/message", name="display_flash")
+     */
+    public function flash(){
+
+        return $this->render(
+            'home/flash.html.twig'
+        );
     }
 }

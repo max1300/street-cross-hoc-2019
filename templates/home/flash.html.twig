@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block titel %} Flash {% endblock %}
+
+{% block body %}
+    <div class="container">
+        {# read and display all flash messages #}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+               
+                <div class="alert alert-dismissible alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
