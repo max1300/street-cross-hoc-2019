@@ -4,7 +4,7 @@
 {% block title %}création d'une offres{% endblock %}
 
 {% block body %}
-
+<div class="container">
 {% if editMode %}
   <h1> Edition d'une offre </h1>
 {% else %}
@@ -17,7 +17,7 @@
 
     {{ form_row(form.title, { 'attr': {'placeholder': 'entrez un titre....'}}) }}
 
-    {{ form_row(form.description, { 'attr': {'placeholder': 'entrez une description....'}}) }}
+    {{ form_row(form.description, { 'attr': {'placeholder': 'entrez une description....', 'rows': '8'}}) }}
 
     <button type="submit" class="btn btn-success btn-lg">
       {% if editMode %}
@@ -29,6 +29,6 @@
 
 {{ form_end(form) }}
 
-
+</div>
 {% endblock %}
 
