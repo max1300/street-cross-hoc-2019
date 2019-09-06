@@ -2,13 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ContactType;
+use App\Entity\Contact;
 
 class HomeController extends AbstractController
 {
@@ -28,10 +27,10 @@ class HomeController extends AbstractController
      */
     public function contact(Request $request, EntityManagerInterface $entityManager)
     {
-        $user = new User();
+        $contact = new contact();
         
 
-        $form = $this->createForm(ContactType::class, $user);
+        $form = $this->createForm(ContactType::class, $contact);
 
         $form->handleRequest($request);
 
@@ -39,7 +38,7 @@ class HomeController extends AbstractController
             
             
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
+            $entityManager->persist($contact);
             $entityManager->flush();
 
             $this->addFlash(
